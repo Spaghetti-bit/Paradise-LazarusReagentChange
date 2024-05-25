@@ -196,3 +196,126 @@
 	icon_state = "bluejersey"
 	item_state = "b_suit"
 	item_color = "bluejersey"
+
+/*
+* 		JUMPSKIRTS
+*/
+/obj/item/clothing/under/color/jumpskirt/purple
+	name = "purple jumpskirt"
+	desc = "A purple jumpskirt, how stylish."
+	icon_state = "purple_skirt"
+	item_state = "purple_skirt"
+	item_color = "purple_skirt"
+	resistance_flags = NONE
+
+/obj/item/clothing/under/color/jumpskirt/red
+	name = "red jumpskirt"
+	desc = "A red jumpskirt, how stylish."
+	icon_state = "red_skirt"
+	item_state = "red_skirt"
+	item_color = "red_skirt"
+	resistance_flags = NONE
+
+/obj/item/clothing/under/color/jumpskirt/black
+	name = "black jumpskirt"
+	desc = "A black jumpskirt, how stylish."
+	icon_state = "black_skirt"
+	item_state = "black_skirt"
+	item_color = "black_skirt"
+	resistance_flags = NONE
+
+/obj/item/clothing/under/color/jumpskirt/grey
+	name = "grey jumpskirt"
+	desc = "A grey jumpskirt, how stylish."
+	icon_state = "grey_skirt"
+	item_state = "grey_skirt"
+	item_color = "grey_skirt"
+	resistance_flags = NONE
+
+/obj/item/clothing/under/color/jumpskirt/white
+	name = "white jumpskirt"
+	desc = "A white jumpskirt, how stylish."
+	icon_state = "white_skirt"
+	item_state = "white_skirt"
+	item_color = "white_skirt"
+	resistance_flags = NONE
+
+/obj/item/clothing/under/color/jumpskirt/darkblue
+	name = "darkblue jumpskirt"
+	desc = "A dark blue jumpskirt, how stylish."
+	icon_state = "darkblue_skirt"
+	item_state = "darkblue_skirt"
+	item_color = "darkblue_skirt"
+	resistance_flags = NONE
+
+/obj/item/clothing/under/color/jumpskirt/blue
+	name = "blue jumpskirt"
+	desc = "A blue jumpskirt, how stylish."
+	icon_state = "blue_skirt"
+	item_state = "blue_skirt"
+	item_color = "blue_skirt"
+	resistance_flags = NONE
+
+/obj/item/clothing/under/color/jumpskirt/lightblue
+	name = "lightblue jumpskirt"
+	desc = "A light blue jumpskirt, how stylish."
+	icon_state = "lightblue_skirt"
+	item_state = "lightblue_skirt"
+	item_color = "lightblue_skirt"
+	resistance_flags = NONE
+
+/obj/item/clothing/under/color/jumpskirt/brown
+	name = "brown jumpskirt"
+	desc = "A brown jumpskirt, how stylish."
+	icon_state = "brown_skirt"
+	item_state = "brown_skirt"
+	item_color = "brown_skirt"
+	resistance_flags = NONE
+
+/obj/item/clothing/under/color/jumpskirt/lightbrown
+	name = "lightbrown jumpskirt"
+	desc = "A light brown jumpskirt, how stylish."
+	icon_state = "lightbrown_skirt"
+	item_state = "lightbrown_skirt"
+	item_color = "lightbrown_skirt"
+	resistance_flags = NONE
+
+/obj/item/clothing/under/color/jumpskirt/orange
+	name = "orange jumpskirt"
+	desc = "A orange jumpskirt, how stylish."
+	icon_state = "orange_skirt"
+	item_state = "orange_skirt"
+	item_color = "orange_skirt"
+	resistance_flags = NONE
+
+/obj/item/clothing/under/color/jumpskirt/green
+	name = "green jumpskirt"
+	desc = "A green jumpskirt, how stylish."
+	icon_state = "green_skirt"
+	item_state = "green_skirt"
+	item_color = "green_skirt"
+	resistance_flags = NONE
+
+/obj/item/clothing/under/color/jumpskirt/yellow
+	name = "yellow jumpskirt"
+	desc = "A yellow jumpskirt, how stylish."
+	icon_state = "yellow_skirt"
+	item_state = "yellow_skirt"
+	item_color = "yellow_skirt"
+	resistance_flags = NONE
+
+/obj/item/clothing/under/color/jumpskirt/pink
+	name = "pink jumpskirt"
+	desc = "A pink jumpskirt, how stylish."
+	icon_state = "pink_skirt"
+	item_state = "pink_skirt"
+	item_color = "pink_skirt"
+	resistance_flags = NONE
+
+/obj/item/clothing/under/color/jumpskirt/white
+	name = "white jumpskirt"
+	desc = "A white jumpskirt, how stylish."
+	icon_state = "white_skirt"
+	item_state = "white_skirt"
+	item_color = "white_skirt"
+	resistance_flags = NONE
