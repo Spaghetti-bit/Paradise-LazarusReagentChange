@@ -19,7 +19,7 @@
 	/// Whether or not this should be shown to observers
 	var/shown_to_observers = FALSE
 	/// Whether or not this button is locked, preventing it from being dragged.
-	var/locked = TRUE
+	var/locked = FALSE
 
 /atom/movable/screen/movable/action_button/Destroy()
 	. = ..()
