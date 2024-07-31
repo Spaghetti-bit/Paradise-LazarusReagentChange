@@ -1071,11 +1071,11 @@
 			to_chat(usr, "This can only be done to instances of type /mob")
 			return
 
-		if(!length(H.languages))
+		if(!length(H.mind.languages))
 			to_chat(usr, "This mob knows no languages.")
 			return
 
-		var/datum/language/rem_language = input("Please choose a language to remove.","Language",null) as null|anything in H.languages
+		var/datum/language/rem_language = input("Please choose a language to remove.","Language",null) as null|anything in H.mind.languages
 
 		if(!rem_language)
 			return

@@ -14,7 +14,7 @@
 	if(!speaking && ismob(other))
 		if(isnymph(other))
 			var/mob/nymph = other
-			if(length(nymph.languages) >= 2) //They've sucked down some blood and can speak common now.
+			if(length(nymph.mind.languages) >= 2) //They've sucked down some blood and can speak common now.
 				return TRUE
 		if(issilicon(other))
 			return TRUE

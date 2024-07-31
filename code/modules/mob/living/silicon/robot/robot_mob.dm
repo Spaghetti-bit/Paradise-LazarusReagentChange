@@ -673,7 +673,7 @@ GLOBAL_LIST_INIT(robot_verbs_default, list(
 
 	camera.network.Remove(list("Engineering", "Medical", "Mining Outpost"))
 	rename_character(real_name, get_default_name("Default"))
-	languages = list()
+	mind.languages = list()
 	speech_synthesizer_langs = list()
 	radio.recalculateChannels()
 	custom_panel = null

@@ -28,6 +28,8 @@
 	/// The original mob's name. Used in Dchat messages
 	var/original_mob_name
 	var/active = FALSE
+	/// The languages this mob's mind knows.
+	var/list/languages = list()
 
 	var/memory
 
@@ -147,6 +149,10 @@
 
 	current = new_character		//link ourself to our new body
 	new_character.mind = src	//and link our new body to ourself
+
+	for(var/datum/language/L in new_character.languages)
+		new_character.add_language("[L.name]")
+	new_character.languages.Cut() // Cut the languages list after we set the mind's langauges
 	for(var/a in antag_datums)	//Makes sure all antag datums effects are applied in the new body
 		var/datum/antagonist/A = a
 		A.on_body_transfer(old_current, current)

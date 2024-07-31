@@ -75,7 +75,7 @@
 		qdel(loc)
 		forceMove(cocoon_turf)
 
-	for(var/datum/language/L in languages)
+	for(var/datum/language/L in mind.languages)
 		adult.add_language(L.name)
 	adult.regenerate_icons()
 	adult.name = name

@@ -98,7 +98,10 @@ RESTRICT_TYPE(/datum/antagonist/changeling)
 	var/mob/living/L = ..()
 	if(ishuman(L))
 		START_PROCESSING(SSobj, src)
-	add_new_languages(L.languages) // Absorb the languages of the new body.
+	if(L.mind)
+		add_new_languages(L.mind.languages) // Absorb the languages of the new body.
+	else
+		add_new_languages(L.languages)
 	update_languages() // But also, give the changeling the languages they've already absorbed before this.
 	// If there's a mob_override, this is a body transfer, and therefore we should give them back their powers they had while in the old body.
 	if(mob_override)
@@ -346,7 +349,7 @@ RESTRICT_TYPE(/datum/antagonist/changeling)
 /datum/antagonist/changeling/proc/absorb_dna(mob/living/carbon/C)
 	C.dna.real_name = C.real_name // Set this again, just to be sure that it's properly set.
 	store_dna(C.dna.Clone())
-	add_new_languages(C.languages)
+	add_new_languages(C.mind.languages)
 	absorbed_count++
 
 /**

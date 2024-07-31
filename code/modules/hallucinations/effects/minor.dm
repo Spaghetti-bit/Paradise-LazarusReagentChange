@@ -145,7 +145,7 @@
 
 	var/mob/living/M = pick(mobs)
 	var/message = pick(messages + "[target]!")
-	target.hear_say(message_to_multilingual(message, pick(target.languages)), speaker = M)
+	target.hear_say(message_to_multilingual(message, pick(target.mind.languages)), speaker = M)
 	// Speech bubble
 	var/image/speech_bubble = image('icons/mob/talk.dmi', M, "[target.bubble_icon][say_test(message)]", layer = FLY_LAYER)
 	speech_bubble.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA

@@ -197,7 +197,7 @@
 		forceMove(L.loc)
 		qdel(L)
 
-	for(var/datum/language/L in languages)
+	for(var/datum/language/L in mind.languages)
 		adult.add_language(L.name)
 	adult.regenerate_icons()
 
@@ -254,9 +254,9 @@
 
 	visible_message("<span class='danger'>[src] flicks out a feeler and neatly steals a sample of [M]'s blood.</span>","<span class='danger'>You flick out a feeler and neatly steal a sample of [M]'s blood.</span>")
 	donors += M.real_name
-	for(var/datum/language/L in M.languages)
+	for(var/datum/language/L in M.mind.languages)
 		if(!(L.flags & HIVEMIND))
-			languages |= L
+			mind.languages |= L
 
 	spawn(25)
 		update_progression()

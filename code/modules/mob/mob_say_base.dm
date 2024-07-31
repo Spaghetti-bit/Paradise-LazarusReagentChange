@@ -71,7 +71,7 @@
 
 /**
  * Checks if the mob can understand the other speaker
- * 
+ *
  * If it return FALSE, then the message will have some letters replaced with stars from the heard message
 */
 /mob/proc/say_understands(atom/movable/other, datum/language/speaking = null)
@@ -99,7 +99,7 @@
 		return TRUE
 
 	//Language check.
-	for(var/datum/language/L in languages)
+	for(var/datum/language/L in mind.languages)
 		if(speaking.name == L.name)
 			return TRUE
 

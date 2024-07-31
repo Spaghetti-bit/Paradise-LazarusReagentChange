@@ -1,4 +1,4 @@
-/mob/living/verb/set_default_language(language as null|anything in languages)
+/mob/living/verb/set_default_language(language as null|anything in mind.languages)
 	set name = "Set Default Language"
 	set category = "IC"
 

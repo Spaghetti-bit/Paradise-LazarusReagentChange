@@ -50,9 +50,14 @@ RESTRICT_TYPE(/datum/antagonist/zombie)
 /datum/antagonist/zombie/apply_innate_effects(mob/living/mob_override)
 	var/mob/living/L = ..()
 
-	old_languages = L.languages.Copy()
-	for(var/datum/language/lang as anything in L.languages)
-		L.remove_language(lang.name)
+	if(L.mind)
+		old_languages = L.mind.languages.Copy()
+		for(var/datum/language/lang as anything in L.mind.languages)
+			L.remove_language(lang.name)
+	else
+		old_languages = L.languages.Copy()
+		for(var/datum/language/lang as anything in L.languages)
+			L.remove_language(lang.name)
 	L.add_language("Zombie")
 	L.default_language = GLOB.all_languages["Zombie"]
 	L.extinguish_light() // zombies prefer darkness

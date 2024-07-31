@@ -349,7 +349,7 @@
 	if(default_language)
 		. += "Current default language: [default_language] - <a href='byond://?src=[UID()];default_lang=reset'>reset</a><br><br>"
 
-	for(var/datum/language/L in languages)
+	for(var/datum/language/L in mind.languages)
 		if(!(L.flags & NONGLOBAL))
 			var/default_str
 			if(L == default_language)

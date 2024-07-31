@@ -34,9 +34,9 @@
 	our_record.id = copytext(md5(B.dna.real_name), 2, 6)
 	our_record.name = B.dna.real_name
 	our_record.types = DNA2_BUF_UI|DNA2_BUF_UE|DNA2_BUF_SE
-	our_record.languages = imp_in.languages
-	if(imp_in.mind) //Save that mind so traitors can continue traitoring after cloning.
-		our_record.mind = imp_in.mind.UID()
+	if(imp_in.mind)
+		our_record.languages = imp_in.mind.languages
+		our_record.mind = imp_in.mind.UID() //Save that mind so traitors can continue traitoring after cloning.
 
 /obj/item/bio_chip_implanter/grey_autocloner
 	name = "bio-chip implanter (Technocracy cloning)"

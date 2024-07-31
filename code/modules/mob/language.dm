@@ -116,7 +116,7 @@
 			to_chat(player, msg_dead)
 			continue
 
-		else if(istype(player, /mob/dead) || ((src in player.languages) && check_special_condition(player, speaker)))
+		else if(istype(player, /mob/dead) || ((src in player.mind.languages) && check_special_condition(player, speaker)))
 			to_chat(player, msg)
 			if((flags & HIVEMIND) && (flags & HIVEMIND_RUNECHAT))
 				player.create_chat_message(player, "[speaker_mask], [format_message(message)]")
@@ -672,22 +672,30 @@
 // Language handling.
 /mob/proc/add_language(language, force)
 	var/datum/language/new_language = GLOB.all_languages[language]
-
-	if(!istype(new_language) || (new_language in languages))
-		return FALSE
-
 	if(HAS_TRAIT(src, TRAIT_LANGUAGE_LOCKED) && !force)
 		return FALSE
+	if(!mind)
+		if(!istype(new_language) || (new_language in languages))
+			return FALSE
+		languages |= new_language
+		return TRUE
+	else if(!istype(new_language) || (new_language in mind.languages))
+		return FALSE
 
-	languages |= new_language
+	mind.languages |= new_language
 	return TRUE
 
 /mob/proc/remove_language(rem_language, force)
+
 	if(HAS_TRAIT(src, TRAIT_LANGUAGE_LOCKED) && !force)
 		return FALSE
 	var/datum/language/L = GLOB.all_languages[rem_language]
-	. = (L in languages)
-	languages.Remove(L)
+	if(!mind)
+		. = (L in languages)
+		languages.Remove(L)
+	else
+		. = (L in mind.languages)
+		mind.languages.Remove(L)
 
 /mob/living/remove_language(rem_language)
 	. = ..()
@@ -699,13 +707,13 @@
 
 // Can we speak this language, as opposed to just understanding it?
 /mob/proc/can_speak_language(datum/language/speaking)
-	return universal_speak || (speaking && speaking.flags & INNATE) || (speaking in languages)
+	return universal_speak || (speaking && speaking.flags & INNATE) || (speaking in mind.languages)
 
 //TBD
 /mob/proc/check_lang_data()
 	. = ""
 
-	for(var/datum/language/L in languages)
+	for(var/datum/language/L in mind.languages)
 		if(!(L.flags & NONGLOBAL))
 			. += "<b>[L.name] (:[L.key])</b><br/>[L.desc]<br><br>"
 
@@ -715,7 +723,7 @@
 	if(default_language)
 		. += "Current default language: [default_language] - <a href='byond://?src=[UID()];default_lang=reset'>reset</a><br><br>"
 
-	for(var/datum/language/L in languages)
+	for(var/datum/language/L in mind.languages)
 		if(!(L.flags & NONGLOBAL))
 			if(L == default_language)
 				. += "<b>[L.name] (:[L.key])</b> - default - <a href='byond://?src=[UID()];default_lang=reset'>reset</a><br>[L.desc]<br><br>"
@@ -776,7 +784,7 @@
 		var/datum/language/new_language = GLOB.all_languages[la]
 		if(new_language.flags & NOBABEL)
 			continue
-		languages |= new_language
+		mind.languages |= new_language
 
 /datum/language/zombie
 	name = "Zombie"
