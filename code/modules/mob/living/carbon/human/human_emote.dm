@@ -171,6 +171,13 @@
 		/mob/living/silicon // Robot sounds
 	)
 
+/datum/emote/living/carbon/human/scream/run_emote(mob/user, emote_arg, type_override, intentional)
+	if(intentional)
+		if(ishuman(user))
+			var/mob/living/carbon/human/H = user
+			H.apply_status_effect(STATUS_EFFECT_SCREAM)
+	. = ..()
+
 /datum/emote/living/carbon/human/scream/select_message_type(mob/user, msg, intentional)
 	. = ..()
 	var/mob/living/carbon/human/H = user

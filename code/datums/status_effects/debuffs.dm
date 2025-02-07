@@ -1508,3 +1508,31 @@
 		new /obj/effect/temp_visual/temporal_slash(get_turf(owner), owner)
 
 #undef FINISHER_THRESHOLD
+
+/datum/status_effect/scream
+	id = "scream"
+	status_type = STATUS_EFFECT_REFRESH
+	alert_type = null
+	duration = 15 SECONDS
+	tick_interval = 1 SECONDS
+	/// How many times the user has been cut. Each cut adds a damage value below
+	var/scream_count = 1
+	/// Threshold on the amount of screams before we start applying oxyloss damage
+	var/scream_threshold = 2
+	/// Amount of oxyloss to apply per scream above the scream amount threshold, multiplied by our scream count.
+	var/oxyloss_damage = 5
+	/// Threshold to stop applying oxyloss
+	var/oxyloss_threshold = 30
+
+/datum/status_effect/scream/refresh()
+	scream_count++
+	if(ishuman(owner))
+		var/mob/living/carbon/human/H = owner
+		if(scream_count >= scream_threshold)
+			var/damage_to_deal = clamp(oxyloss_damage * scream_count, 0, oxyloss_threshold)
+			if(H.health - damage_to_deal > 0) // Self-Crit Prevention
+				if(H.getOxyLoss() + damage_to_deal < oxyloss_threshold)
+					H.adjustOxyLoss(damage_to_deal)
+				else if(H.getOxyLoss() < damage_to_deal)
+					H.setOxyLoss(damage_to_deal)
+	return ..()
